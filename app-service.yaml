@@ -1,0 +1,18 @@
+# my-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp-service
+  labels:
+    io.kompose.service: nodeapp
+  annotations:
+    cloud.google.com/backend-config: '{"ports": {"80":"nodeapp-backendconfig"}}'
+    cloud.google.com/neg: '{"ingress": true}'
+spec:
+  type: ClusterIP
+  selector:
+    io.kompose.service: nodeapp    
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 3000

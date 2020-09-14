@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    io.kompose.service: nodeapp
+  name: nodeapp
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      io.kompose.service: nodeapp
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: nodeapp
+    spec:
+      containers:
+      - image: asia.gcr.io/tdi-trial-0/node-socket-chat-app:v1
+        imagePullPolicy: IfNotPresent
+        name: nodeapp-port
+        ports:
+        - containerPort: 3000
+          protocol: TCP
