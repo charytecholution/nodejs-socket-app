@@ -1,5 +1,5 @@
 // server.js
-
+var ip = require("ip");
 import express from "express";
 import path from "path";
 import bodyParser from "body-parser";
@@ -25,10 +25,10 @@ io.sockets.on("connection", socket => {
 socket.on("sending message", message => {
   console.log("Message is received :", message);
 
-  io.sockets.emit("new message", { message: message });
+  io.sockets.emit("new message", { message: message, ip:ip.address() });
 });
 });
-var ip = require("ip");
+
 console.log( ip.address() );
 'use strict';
 
