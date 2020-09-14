@@ -1,5 +1,7 @@
 # Nodejs-socket-app
 
+## Running the app locally
+
 ### Building the docker image
 
 docker build -t node-socket-app .
@@ -10,7 +12,7 @@ docker run -it -p 3000:3000 node-socket-app
 
 ### Access the application from browser at http://localhost:3000
 
-# Deploying on GKE Cluster
+## Deploying on GKE Cluster
 
 ### 1. tag and push the docker image from local to the remote repo
 
