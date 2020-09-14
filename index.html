@@ -43,10 +43,9 @@
         txt.val('');
      })
 
-     socket.on('new message', function(data){
-         chatArea.append('<div class="well">'+data.message+'</div>');
+socket.on('new message', function(data){
+         chatArea.append('<div class="well">'+'Message:  '+data.message +'Ip Address : '+data.ip+'</div>');
      });
-  });
 </script>
 <p>Click the button to display the hostname of the current URL.</p>
 
